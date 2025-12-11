@@ -11,15 +11,6 @@ async function criarTabelas() {
 
     // Este codigo é responsavel por criar uma nova tabela
     // Se for criar uma nova tabela duplique este código e coloque sua tabela
-    await executarQuery(`
-      CREATE TABLE IF NOT EXISTS tabelaExemplo(
-        id_exemplo INT AUTO_INCREMENT PRIMARY KEY,
-        campo1 VARCHAR(100),
-        campo2 VARCHAR(100),
-        campo3 VARCHAR(100)
-      );
-    `);
-
 
     await executarQuery(`
      CREATE TABLE IF NOT EXISTS USUARIO (
@@ -31,20 +22,17 @@ async function criarTabelas() {
 
 
     await executarQuery(`
-     CREATE TABLE TAREFA (
-        id_tarefa INT PRIMARY KEY AUTO_INCREMENT,
-        titulo VARCHAR(150) NOT NULL,
-        status VARCHAR(50) NOT NULL,
-        prioridade VARCHAR(50),
-        executor VARCHAR(100),
-        id_usuario INT NOT NULL,
-
-        CONSTRAINT fk_tarefa_usuario
-            FOREIGN KEY (id_usuario)
-            REFERENCES USUARIO(id_usuario)
-            ON DELETE CASCADE
-            ON UPDATE CASCADE
-        );
+      CREATE TABLE IF NOT EXISTS TAREFA 
+      ( 
+          id_tarefa INT PRIMARY KEY,  
+          status VARCHAR(20),
+          prioridade INT,
+          setor VARCHAR(50),
+          descricao_tarefa VARCHAR(255),
+          data DATE,
+          id_usuario INT,
+          FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
+      );
     `);
 
     // Tenha cuidado porque a ordem de criação é importante

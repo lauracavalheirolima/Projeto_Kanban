@@ -9,5 +9,5 @@
     CHARACTER SET utf8mb4;
  
  */ 
-     CREATE DATABASE Kanban
-    CHARACTER SET utf8mb4;
+CREATE DATABASE Kanban
+   CHARACTER SET utf8mb4;
